@@ -7,7 +7,7 @@ set -e
 # for production environments. Before running this script, make yourself familiar
 # with potential risks and limitations, and refer to the installation manual
 # at https://docs.docker.com/engine/install/ for alternative installation methods.
-#
+# 
 # The script:
 #
 # - Requires `root` or `sudo` privileges to run.
