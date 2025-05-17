@@ -7,7 +7,7 @@ set -e
 # for production environments. Before running this script, make yourself familiar
 # with potential risks and limitations, and refer to the installation manual
 # at https://docs.docker.com/engine/install/ for alternative installation methods.
-# 
+#
 # The script:
 #
 # - Requires `root` or `sudo` privileges to run.
@@ -405,6 +405,18 @@ do_install() {
 	# perform some very rudimentary platform detection
 	lsb_dist=$( get_distribution )
 	lsb_dist="$(echo "$lsb_dist" | tr '[:upper:]' '[:lower:]')"
+
+	if is_wsl; then
+		echo
+		echo "WSL DETECTED: We recommend using Docker Desktop for Windows."
+		echo "Please get Docker Desktop from https://www.docker.com/products/docker-desktop/"
+		echo
+		cat >&2 <<-'EOF'
+
+			You may press Ctrl+C now to abort this script.
+		EOF
+		( set -x; sleep 20 )
+	fi
 
 	case "$lsb_dist" in
 
